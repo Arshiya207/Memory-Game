@@ -1,3 +1,4 @@
+// variables
 const imgArr = [
   "cheeseburger.png",
   "fries.png",
@@ -6,9 +7,8 @@ const imgArr = [
   "milkshake.png",
   "pizza.png",
 ];
-// variables
-const imgIndex = randomize([0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-const boardPattern = [];
+let imgIndex = randomize([0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+let boardPattern = [];
 let imageTags = document.querySelectorAll(".board-container>div>img");
 const cells = document.querySelectorAll(".board-container>div");
 const startBtn = document.querySelector(".start-btn");
@@ -18,21 +18,6 @@ let isGameStart = false;
 let ScoreCounter = document.querySelector(".score-counter");
 let numberOfClicksOnStart = 0;
 let canClickOnReset = false;
-// make peer of picture and cards
-for (let i = 0; i < 12; i++) {
-  boardPattern.push([i, imgIndex[i]]);
-}
-// make the peer for to true cards
-for (let i = 0; i < 6; i++) {
-  const result = boardPattern.filter((arr) => {
-    if (arr[1] === i) {
-      return arr;
-    }
-  });
-
-  boardWinPattern.push(result);
-}
-
 let cellChoice = [];
 let counter = 0;
 // add event listener for each cell
@@ -158,6 +143,24 @@ function hidePicsAndStartClicking() {
   isGameStart = true;
 }
 function startTheGame() {
+  imgIndex = randomize([0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5])
+  boardPattern=[]
+  boardWinPattern=[]
+  
+  // make peer of picture and cards
+for (let i = 0; i < 12; i++) {
+  boardPattern.push([i, imgIndex[i]]);
+}
+// make the peer for to true cards
+for (let i = 0; i < 6; i++) {
+  const result = boardPattern.filter((arr) => {
+    if (arr[1] === i) {
+      return arr;
+    }
+  });
+
+  boardWinPattern.push(result);
+}
   numberOfClicksOnStart += 1;
   startBtn.style.backgroundColor = "#65a965";
   canClickOnReset = false;
