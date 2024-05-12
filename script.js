@@ -41,7 +41,7 @@ function reset() {
   if (!canClickOnReset) return;
   cells.forEach((cell) => {
     cell.innerHTML = "";
-    const createImgTag = `<img src="images/blank.png"/>`;
+    const createImgTag = `<img src="images/blank.png" draggable="false"/>`;
     cell.innerHTML = createImgTag;
   });
   ScoreCounter.innerHTML = "Score: 0";
