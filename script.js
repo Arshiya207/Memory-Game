@@ -29,9 +29,9 @@ startBtn.addEventListener("click", () => {
 });
 function addEventToImgTags() {
   imageTags.forEach((img, index) => {
-    img.addEventListener("click", function (e) {
-      //gameCode.apply(this,[e,index])
-      gameCode(e, index, this);
+    img.addEventListener("click", function () {
+      
+      gameCode( index, this);
     });
   });
 }
@@ -50,17 +50,23 @@ function reset() {
   isGameStart = false;
   counter = 0;
 }
-function gameCode(e, index, imgCell) {
+function gameCode( index, imgCell) {
   if (!isGameStart) return;
-
   const peeredImgIndex = findPeer(index)[0][1];
   const imageItself = imgArr[peeredImgIndex];
   imgCell.setAttribute("src", "images/" + imageItself);
   imgCell.classList.remove("flip-vertical-right");
   imgCell.classList.add("flip-vertical-left");
+  if(cellChoice.length===1 && index === cellChoice[0]){
+    alert("you can not click on the same cell twice")
+    return
+  }else{
+    cellChoice.push(index);
 
-  cellChoice.push(index);
+  }
+ 
   if (cellChoice.length === 2) {
+   
     isGameStart = false;
     let userPattern = findPeer(cellChoice);
     if (checkForWin(userPattern)) {
@@ -90,7 +96,7 @@ function gameCode(e, index, imgCell) {
             img.classList.add("flip-vertical-right");
             img.setAttribute("src", "images/blank.png");
             isGameStart = true;
-          }, 1000);
+          }, 200);
         }
       });
       cellChoice = [];

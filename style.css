@@ -52,23 +52,21 @@
 /*animatoins*/
 
 .flip-vertical-right {
-  -webkit-animation: flip-vertical-right 0.4s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+
+  animation: flip-vertical-right 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
     both;
   animation-fill-mode: forwards;
 }
 .flip-vertical-left {
-  -webkit-animation: flip-vertical-left 0.4s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+  
+  animation: flip-vertical-left 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
     both;
   animation-fill-mode: forwards;
 }
 .fade {
   opacity: 0;
 
-  transition: 0.5s linear !important;
+  transition: 0.2s linear !important;
 }
 
 @keyframes flip-vertical-left {
