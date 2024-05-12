@@ -49,6 +49,7 @@ function reset() {
   startTheGame(imageTags);
   isGameStart = false;
   counter = 0;
+  cellChoice=[]
 }
 function gameCode( index, imgCell) {
   if (!isGameStart) return;
